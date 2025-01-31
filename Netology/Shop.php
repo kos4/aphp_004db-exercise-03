@@ -2,7 +2,7 @@
 
 namespace Netology;
 
-class Shop extends ConnectDB implements DatabaseWrapper
+class Shop extends ConnectDB
 {
   protected string $table = 'shop';
   protected array $shops = [
@@ -38,7 +38,7 @@ class Shop extends ConnectDB implements DatabaseWrapper
     return $this->pdo->query($sql);
   }
 
-  public function insertTestData(array $shops = [])
+  public function insertTestData(array $shops = []): void
   {
     $query = $this->pdo->query("SELECT * FROM $this->table");
 

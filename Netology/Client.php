@@ -4,7 +4,7 @@ namespace Netology;
 
 use Netology\ConnectDB;
 
-class Client extends ConnectDB implements DatabaseWrapper
+class Client extends ConnectDB
 {
   protected string $table = 'client';
   protected array $clients = [
@@ -40,7 +40,7 @@ class Client extends ConnectDB implements DatabaseWrapper
     return $this->pdo->query($sql);
   }
 
-  public function insertTestData(array $clients = [])
+  public function insertTestData(array $clients = []): void
   {
     $query = $this->pdo->query("SELECT * FROM $this->table");
 

@@ -19,12 +19,12 @@ print_r($res);*/
 //var_dump($shop->delete(6));
 
 $product = new Product();
-/*$res = $product->insert(['name', 'price', 'count'], [
-  ['Майонез', 50, 100],
-  ['Морковь', 10, 1000],
+/*$res = $product->insert(['name', 'price', 'count', 'shop_id'], [
+  ['Майонез', 50, 100, 1],
+  ['Морковь', 10, 1000, 2],
 ]);
 print_r($res);*/
-//print_r($product->update(6, ['name' => 'Морковь', 'price' => '11', 'count' => 500]));
+//print_r($product->update(6, ['name' => 'Морковь', 'price' => '11', 'count' => 500, 'shop_id' => 3]));
 //print_r($product->find(1));
 //var_dump($product->delete(6));
 

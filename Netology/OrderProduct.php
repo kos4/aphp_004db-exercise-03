@@ -4,7 +4,7 @@ namespace Netology;
 
 use Netology\ConnectDB;
 
-class OrderProduct extends ConnectDB implements DatabaseWrapper
+class OrderProduct extends ConnectDB
 {
   protected string $table = 'order_product';
   protected array $order_products = [
@@ -47,12 +47,14 @@ class OrderProduct extends ConnectDB implements DatabaseWrapper
       order_id INT,
       product_id INT,
       price FLOAT DEFAULT 0,
-      quantity INT DEFAULT 0
+      quantity INT DEFAULT 0,
+      CONSTRAINT orderProduct_order_fk FOREIGN KEY (order_id) REFERENCES `order` (id) ON DELETE CASCADE,
+      CONSTRAINT orderProduct_product_fk FOREIGN KEY (product_id) REFERENCES `product` (id) ON DELETE CASCADE
     )";
     return $this->pdo->query($sql);
   }
 
-  public function insertTestData(array $order_products = [])
+  public function insertTestData(array $order_products = []): void
   {
     $query = $this->pdo->query("SELECT * FROM `$this->table`");
 
